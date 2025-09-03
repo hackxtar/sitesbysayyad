@@ -15,8 +15,8 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
-  title: 'Sitefolio | Digital Portfolio',
-  description: 'A portfolio showcasing web and application development projects.',
+  title: 'SitesBySayyad | Custom Web Solutions',
+  description: 'High-quality, custom websites and applications built by SitesBySayyad.',
 };
 
 export default function RootLayout({

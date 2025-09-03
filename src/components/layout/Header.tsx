@@ -21,7 +21,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
           <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg font-headline text-primary">Sitefolio</span>
+          <span className="font-bold text-lg font-headline text-primary">SitesBySayyad</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
