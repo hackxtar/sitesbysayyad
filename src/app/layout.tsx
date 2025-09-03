@@ -2,17 +2,18 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { Inter, Source_Code_Pro } from 'next/font/google';
+import { Poppins, Roboto_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-body',
+  weight: ['400', '500', '600', '700']
 });
 
-const sourceCodePro = Source_Code_Pro({
+const robotoMono = Roboto_Mono({
   subsets: ['latin'],
-  variable: '--font-source-code-pro',
+  variable: '--font-headline',
 });
 
 export const metadata: Metadata = {
@@ -27,10 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} ${sourceCodePro.variable} font-body antialiased bg-background`}>
+      <body className={`${poppins.variable} ${robotoMono.variable} font-body antialiased bg-background`}>
         <ThemeProvider
             attribute="class"
-            defaultTheme="default"
+            defaultTheme="corporate"
             enableSystem
             disableTransitionOnChange
         >

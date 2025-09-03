@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Code, Menu, X } from 'lucide-react';
+import { Briefcase, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeSwitcher } from '@/components/theme-switcher';
 
@@ -21,8 +21,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
-          <Code className="h-8 w-8 text-primary" />
-          <span className="font-bold text-xl font-headline text-primary">SitesBySayyad</span>
+          <Briefcase className="h-8 w-8 text-primary" />
+          <span className="font-bold text-xl font-headline text-foreground">SitesBySayyad</span>
         </Link>
         <div className="flex items-center space-x-4">
           <nav className="hidden md:flex items-center space-x-8">
@@ -30,13 +30,16 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-foreground/70 transition-colors hover:text-primary"
+                className="text-base font-medium text-muted-foreground transition-colors hover:text-primary"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
           <ThemeSwitcher />
+          <Button asChild className="hidden md:flex">
+             <Link href="#contact">Get a Quote</Link>
+          </Button>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
               <span className="sr-only">Toggle menu</span>
@@ -58,6 +61,9 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+             <Button asChild>
+                <Link href="#contact" onClick={() => setIsOpen(false)}>Get a Quote</Link>
+             </Button>
           </nav>
         </div>
       )}

@@ -11,8 +11,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 190 95% 55%;
-    --primary-foreground: 222 84% 4.9%;
+    --primary: 220 90% 55%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 222 47% 11%;
     --secondary-foreground: 210 40% 98%;
     --muted: 222 47% 11%;
@@ -23,13 +23,13 @@
     --destructive-foreground: 210 40% 98%;
     --border: 222 47% 11.2%;
     --input: 222 47% 11.2%;
-    --ring: 190 95% 55%;
+    --ring: 220 90% 55%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --radius: 0.8rem;
+    --radius: 0.5rem;
   }
 
   .light {
@@ -172,6 +172,7 @@
     --border: 220 30% 90%;
     --input: 220 30% 90%;
     --ring: 220 90% 55%;
+    --radius: 0.5rem;
   }
 
   .vibrant {
@@ -245,5 +246,3 @@
     text-shadow: 0 0 8px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
   }
 }
-
-    
