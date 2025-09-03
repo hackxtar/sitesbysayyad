@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -6,11 +7,11 @@ import { Menu, X, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#home', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#testimonials', label: 'Testimonials' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -36,7 +37,7 @@ export default function Header() {
             ))}
           </nav>
           <Button asChild className="hidden md:flex rounded-full">
-             <Link href="#contact">Get Quote</Link>
+             <Link href="/quote">Get Quote</Link>
           </Button>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
@@ -60,7 +61,7 @@ export default function Header() {
               </Link>
             ))}
              <Button asChild className="rounded-full">
-                <Link href="#contact" onClick={() => setIsOpen(false)}>Get Quote</Link>
+                <Link href="/quote" onClick={() => setIsOpen(false)}>Get Quote</Link>
              </Button>
           </nav>
         </div>
