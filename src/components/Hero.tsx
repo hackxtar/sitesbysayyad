@@ -29,7 +29,7 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-          <div className="hidden lg:block">
+          <div className="lg:block">
             <Image
               src="https://storage.googleapis.com/aai-web-samples/hero-illustration.png"
               alt="Illustration of a laptop and mobile phone with code and UI elements"
