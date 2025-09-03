@@ -5,16 +5,16 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative pt-24 pb-28 sm:pt-32 sm:pb-36 overflow-hidden">
+    <section className="relative pt-24 pb-28 sm:pt-32 sm:pb-36 overflow-hidden bg-background">
       <div className="absolute inset-0 z-0">
         <Image
           src="https://picsum.photos/1800/1000"
-          alt="Abstract background of colliding websites"
+          alt="Illustration of a laptop with code on screen"
           fill
-          className="object-cover opacity-20"
-          data-ai-hint="website collage technology"
+          className="object-cover opacity-30"
+          data-ai-hint="programming laptop illustration"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
