@@ -35,29 +35,29 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="py-20 md:py-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-headline font-bold text-primary sm:text-4xl">My Work</h2>
-          <p className="mt-4 text-lg text-muted-foreground">A selection of my recent projects.</p>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-headline font-bold text-primary sm:text-5xl">My Work</h2>
+          <p className="mt-4 text-xl text-muted-foreground">A selection of my recent projects.</p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <Card key={project.title} className="overflow-hidden flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <Card key={project.title} className="overflow-hidden flex flex-col bg-secondary border-border/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2">
               <div className="aspect-video relative w-full">
                  <Image src={project.imageUrl} alt={project.title} fill className="object-cover" data-ai-hint={project.hint} />
               </div>
               <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
+                <CardTitle className="text-2xl">{project.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
-                 <p className="text-muted-foreground text-sm">{project.description}</p>
+                 <p className="text-muted-foreground">{project.description}</p>
                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                    {project.tags.map(tag => <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">{tag}</Badge>)}
                  </div>
               </CardContent>
               <CardFooter>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full text-base py-6">
                   <Link href={project.link} target="_blank" rel="noopener noreferrer">
                     Visit Site <ArrowUpRight className="ml-2 h-4 w-4" />
                   </Link>

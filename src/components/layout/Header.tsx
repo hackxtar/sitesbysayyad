@@ -18,17 +18,17 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
-          <Code className="h-6 w-6 text-primary" />
-          <span className="font-bold text-lg font-headline text-primary">SitesBySayyad</span>
+          <Code className="h-8 w-8 text-primary" />
+          <span className="font-bold text-xl font-headline text-primary">SitesBySayyad</span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
+              className="text-base font-medium text-foreground/70 transition-colors hover:text-primary"
             >
               {link.label}
             </Link>
@@ -43,12 +43,12 @@ export default function Header() {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col items-center space-y-4 py-4 border-t border-border/40">
+          <nav className="flex flex-col items-center space-y-6 py-6 border-t border-border/40">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-foreground/80 transition-colors hover:text-primary"
+                className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

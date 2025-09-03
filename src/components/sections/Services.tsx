@@ -4,32 +4,32 @@ import { CodeXml, LayoutTemplate, Palette, ShoppingCart, Smartphone, PenTool } f
 
 const services = [
   {
-    icon: <CodeXml className="h-8 w-8 text-primary" />,
+    icon: <CodeXml className="h-10 w-10 text-primary" />,
     title: 'Web Development',
     description: 'Building responsive and high-performance websites from the ground up, with a focus on modern web standards.',
   },
   {
-    icon: <LayoutTemplate className="h-8 w-8 text-primary" />,
+    icon: <LayoutTemplate className="h-10 w-10 text-primary" />,
     title: 'Application Development',
     description: 'Bespoke web and mobile applications built with modern, scalable technologies to solve complex problems.',
   },
   {
-    icon: <PenTool className="h-8 w-8 text-primary" />,
+    icon: <PenTool className="h-10 w-10 text-primary" />,
     title: 'UI/UX Design',
     description: 'Creating intuitive and beautiful user interfaces that provide a seamless user experience across all devices.',
   },
   {
-    icon: <Smartphone className="h-8 w-8 text-primary" />,
+    icon: <Smartphone className="h-10 w-10 text-primary" />,
     title: 'Mobile App Development',
     description: 'Native and cross-platform mobile applications for iOS and Android, delivering a rich and engaging mobile experience.',
   },
   {
-    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+    icon: <ShoppingCart className="h-10 w-10 text-primary" />,
     title: 'E-commerce Solutions',
     description: 'Custom e-commerce platforms and Shopify apps to help you sell online and grow your business.',
   },
   {
-    icon: <Palette className="h-8 w-8 text-primary" />,
+    icon: <Palette className="h-10 w-10 text-primary" />,
     title: 'WordPress & CMS',
     description: 'Custom themes, plugins, and full-site builds on popular CMS platforms like WordPress and Sanity.',
   },
@@ -37,21 +37,21 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary">
+    <section id="services" className="py-20 md:py-28 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-headline font-bold text-primary sm:text-4xl">What I Offer</h2>
-          <p className="mt-4 text-lg text-muted-foreground">A comprehensive suite of development services.</p>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-headline font-bold text-primary sm:text-5xl">What I Offer</h2>
+          <p className="mt-4 text-xl text-muted-foreground">A comprehensive suite of development services.</p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <Card key={index} className="text-left bg-background/50 border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+            <Card key={index} className="text-left bg-background/50 border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
               <CardHeader>
                 {service.icon}
-                <CardTitle className="mt-4 text-xl">{service.title}</CardTitle>
+                <CardTitle className="mt-6 text-2xl">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{service.description}</p>
+                <p className="text-muted-foreground text-base">{service.description}</p>
               </CardContent>
             </Card>
           ))}

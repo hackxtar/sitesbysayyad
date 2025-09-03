@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth dark">
-      <body className={`${inter.variable} ${sourceCodePro.variable} font-body antialiased`}>
+      <body className={`${inter.variable} ${sourceCodePro.variable} font-body antialiased bg-background`}>
         {children}
         <Toaster />
       </body>

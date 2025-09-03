@@ -5,26 +5,27 @@ import { ArrowDown } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative py-20 md:py-32">
-      <div className="container mx-auto text-center max-w-4xl px-4 sm:px-6 lg:px-8">
-        <p className="font-headline text-primary mb-4">Welcome to SitesBySayyad.</p>
-        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+    <section id="hero" className="relative py-24 md:py-40">
+      <div className="container mx-auto text-center max-w-5xl px-4 sm:px-6 lg:px-8">
+        <p className="font-headline text-primary mb-6 text-lg">Welcome to SitesBySayyad.</p>
+        <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl">
           We Build Exceptional Digital Experiences.
         </h1>
-        <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-8 text-xl leading-8 text-muted-foreground max-w-3xl mx-auto">
           We are a software company specializing in building high-quality, custom websites and applications. We focus on creating accessible, human-centered products that solve real-world problems.
         </p>
-        <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Button asChild size="lg">
+        <div className="mt-12 flex items-center justify-center gap-x-6">
+          <Button asChild size="lg" className="text-lg px-10 py-6">
             <Link href="#contact">Get in Touch</Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" className="text-lg px-10 py-6">
             <Link href="#projects">
-              View Our Work <ArrowDown className="ml-2 h-4 w-4" />
+              View Our Work <ArrowDown className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
       </div>
+      <div className="absolute top-0 left-0 -z-10 h-full w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
     </section>
   );
 }

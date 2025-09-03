@@ -68,15 +68,15 @@ export function ContactForm() {
 
   return (
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel className="text-lg">Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your Name" {...field} />
+                  <Input placeholder="Your Name" {...field} className="py-6 text-base"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -87,9 +87,9 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-lg">Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="your.email@example.com" {...field} />
+                  <Input type="email" placeholder="your.email@example.com" {...field} className="py-6 text-base"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -100,20 +100,21 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message</FormLabel>
+                <FormLabel className="text-lg">Message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell me about your project..."
-                    rows={5}
+                    rows={6}
                     {...field}
+                    className="text-base"
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full" disabled={isPending}>
-            {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          <Button type="submit" className="w-full text-lg py-7" disabled={isPending}>
+            {isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
             Send Message
           </Button>
         </form>
