@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeSwitcher } from '@/components/theme-switcher';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -35,6 +36,7 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+          <ThemeSwitcher />
           <Button asChild className="hidden md:flex rounded-full">
              <Link href="#contact">Get Quote</Link>
           </Button>

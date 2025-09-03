@@ -1,8 +1,7 @@
-
 "use client"
 
 import * as React from "react"
-import { Moon, Sun, Palette } from "lucide-react"
+import { Palette } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -14,14 +13,11 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const themes = [
-    { name: "Default", value: "default" },
     { name: "Light", value: "light" },
+    { name: "Dark", value: "dark" },
     { name: "Forest", value: "forest" },
     { name: "Ocean", value: "ocean" },
     { name: "Sunset", value: "sunset" },
-    { name: "Monochrome", value: "monochrome" },
-    { name: "Matrix", value: "matrix" },
-    { name: "Corporate", value: "corporate" },
     { name: "Vibrant", value: "vibrant" },
     { name: "Rose", value: "rose" },
 ]
