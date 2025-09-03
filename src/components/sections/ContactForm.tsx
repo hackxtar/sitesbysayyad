@@ -76,7 +76,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel className="text-lg">Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your Name" {...field} className="py-6 text-base"/>
+                  <Input placeholder="Your Name" {...field} className="py-7 text-base"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -89,7 +89,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel className="text-lg">Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="your.email@example.com" {...field} className="py-6 text-base"/>
+                  <Input type="email" placeholder="your.email@example.com" {...field} className="py-7 text-base"/>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -113,7 +113,7 @@ export function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full text-lg py-7" disabled={isPending}>
+          <Button type="submit" size="lg" className="w-full text-lg py-7" disabled={isPending}>
             {isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
             Send Message
           </Button>
