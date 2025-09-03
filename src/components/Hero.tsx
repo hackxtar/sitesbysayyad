@@ -11,7 +11,7 @@ export default function Hero() {
           src="https://picsum.photos/1800/1000"
           alt="Abstract background of colliding websites"
           fill
-          className="object-cover opacity-10"
+          className="object-cover opacity-20"
           data-ai-hint="website collage technology"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
