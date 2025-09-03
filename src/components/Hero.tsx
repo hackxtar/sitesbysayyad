@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative bg-background text-white min-h-[calc(100vh-80px)] flex items-center justify-center">
+    <section className="relative bg-background text-white min-h-[calc(100vh-80px)] flex items-center">
       <Image
         src="/hero-illustration.png"
         alt="Hero background illustration"
@@ -16,7 +16,7 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div className="max-w-3xl text-center mx-auto">
+        <div className="max-w-3xl text-left">
           <p className="text-primary font-semibold mb-4 text-lg">
             SitesBySayyad
           </p>
@@ -26,7 +26,7 @@ export default function Hero() {
           <p className="mt-6 text-lg leading-8 text-slate-300">
             We build innovative and beautiful web experiences, leveraging a universe of platforms and technologies to bring your vision to life.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex items-center justify-start gap-x-6">
             <Button asChild size="lg" className="rounded-full px-8 py-6 text-lg">
               <Link href="#contact">Get a Quote</Link>
             </Button>
