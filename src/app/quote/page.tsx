@@ -18,6 +18,8 @@ import Footer from '@/components/layout/Footer';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const quoteSchema = z.object({
+  email: z.string().email('Please enter a valid email address.'),
+  mobile: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian mobile number.'),
   projectType: z.string({ required_error: 'Please select a project type.' }),
   features: z.string().min(20, 'Please describe your key features in at least 20 characters.'),
   design: z.string({ required_error: 'Please select a design style.' }),
@@ -39,6 +41,8 @@ export default function QuotePage() {
   const form = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteSchema),
     defaultValues: {
+      email: '',
+      mobile: '',
       features: '',
     },
   });
@@ -75,6 +79,34 @@ export default function QuotePage() {
             <CardContent>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                   <div className="grid md:grid-cols-2 gap-8">
+                     <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="your.email@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="mobile"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Mobile Number</FormLabel>
+                            <FormControl>
+                              <Input placeholder="9876543210" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                   </div>
                   <FormField
                     control={form.control}
                     name="projectType"
@@ -109,7 +141,7 @@ export default function QuotePage() {
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select a design style" />
-                            </SelectTrigger>
+                            </Trigger>
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="simple-template">Simple & Clean (Template-based)</SelectItem>
@@ -174,7 +206,7 @@ export default function QuotePage() {
                   <p className="text-3xl font-bold text-foreground">{quoteResponse.estimatedCost}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg">Estimated Breakdown</h3>
+                  <h3 className="font-semibold text-lg">Proposed Project Flow</h3>
                   <p className="whitespace-pre-wrap text-muted-foreground">{quoteResponse.breakdown}</p>
                 </div>
                 <Alert>
