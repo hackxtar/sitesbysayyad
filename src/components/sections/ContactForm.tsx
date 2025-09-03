@@ -16,7 +16,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useTransition } from 'react';
 import { Loader2 } from 'lucide-react';
@@ -68,7 +67,6 @@ export function ContactForm() {
   };
 
   return (
-    <CardContent className="p-6">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -120,6 +118,5 @@ export function ContactForm() {
           </Button>
         </form>
       </Form>
-    </CardContent>
   );
 }

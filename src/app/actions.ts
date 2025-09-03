@@ -1,18 +1,7 @@
 
 'use server';
 
-import { parseResumeAndDisplay } from '@/ai/flows/parse-resume-and-display';
 import { z } from 'zod';
-
-export async function handleResumeUpload(resumeText: string) {
-  try {
-    const result = await parseResumeAndDisplay({ resumeText });
-    return { success: true, data: result.parsedResume };
-  } catch (error) {
-    console.error('Error parsing resume:', error);
-    return { success: false, error: 'Failed to parse resume. Please try again.' };
-  }
-}
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),

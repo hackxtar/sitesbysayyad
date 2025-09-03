@@ -1,38 +1,43 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CodeXml, LayoutTemplate, Palette, ShoppingCart, Smartphone } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { CodeXml, LayoutTemplate, Palette, ShoppingCart, Smartphone, PenTool } from 'lucide-react';
 
 const services = [
   {
-    icon: <LayoutTemplate className="h-8 w-8 text-accent" />,
-    title: 'WordPress Development',
-    description: 'Custom themes, plugins, and full-site builds on the world\'s most popular CMS.',
+    icon: <CodeXml className="h-8 w-8 text-primary" />,
+    title: 'Web Development',
+    description: 'Building responsive and high-performance websites from the ground up, with a focus on modern web standards.',
   },
   {
-    icon: <Palette className="h-8 w-8 text-accent" />,
-    title: 'Website Design',
-    description: 'Beautiful, responsive, and user-friendly designs that capture your brand\'s essence.',
-  },
-  {
-    icon: <Smartphone className="h-8 w-8 text-accent" />,
-    title: 'iOS & Android Apps',
-    description: 'Native and cross-platform mobile applications for a seamless user experience.',
-  },
-  {
-    icon: <ShoppingCart className="h-8 w-8 text-accent" />,
-    title: 'Shopify App Development',
-    description: 'Extend your e-commerce capabilities with custom Shopify apps and integrations.',
-  },
-  {
-    icon: <CodeXml className="h-8 w-8 text-accent" />,
+    icon: <LayoutTemplate className="h-8 w-8 text-primary" />,
     title: 'Application Development',
-    description: 'Bespoke web and desktop applications built with modern, scalable technologies.',
+    description: 'Bespoke web and mobile applications built with modern, scalable technologies to solve complex problems.',
+  },
+  {
+    icon: <PenTool className="h-8 w-8 text-primary" />,
+    title: 'UI/UX Design',
+    description: 'Creating intuitive and beautiful user interfaces that provide a seamless user experience across all devices.',
+  },
+  {
+    icon: <Smartphone className="h-8 w-8 text-primary" />,
+    title: 'Mobile App Development',
+    description: 'Native and cross-platform mobile applications for iOS and Android, delivering a rich and engaging mobile experience.',
+  },
+  {
+    icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+    title: 'E-commerce Solutions',
+    description: 'Custom e-commerce platforms and Shopify apps to help you sell online and grow your business.',
+  },
+  {
+    icon: <Palette className="h-8 w-8 text-primary" />,
+    title: 'WordPress & CMS',
+    description: 'Custom themes, plugins, and full-site builds on popular CMS platforms like WordPress and Sanity.',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 bg-secondary">
+    <section id="services" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-headline font-bold text-primary sm:text-4xl">What I Offer</h2>
@@ -40,10 +45,10 @@ export default function Services() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
-            <Card key={index} className="flex flex-col text-center items-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+            <Card key={index} className="text-left bg-background/50 border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
               <CardHeader>
                 {service.icon}
-                <CardTitle className="mt-4">{service.title}</CardTitle>
+                <CardTitle className="mt-4 text-xl">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">{service.description}</p>
