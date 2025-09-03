@@ -19,7 +19,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const quoteSchema = z.object({
   email: z.string().email('Please enter a valid email address.'),
-  mobile: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian mobile number.'),
+  mobile: z.string().regex(/^[6-9]\d{9}$/, { message: 'Please enter a valid 10-digit Indian mobile number.' }),
   projectType: z.string({ required_error: 'Please select a project type.' }),
   features: z.string().min(20, 'Please describe your key features in at least 20 characters.'),
   design: z.string({ required_error: 'Please select a design style.' }),
