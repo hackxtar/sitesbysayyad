@@ -11,7 +11,7 @@ export default function Hero() {
           src="https://picsum.photos/1800/1000"
           alt="Illustration of a laptop with code on screen"
           fill
-          className="object-cover opacity-30"
+          className="object-cover opacity-10"
           data-ai-hint="programming laptop illustration"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
