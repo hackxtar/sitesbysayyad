@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { ThemeSwitcher } from '@/components/theme-switcher';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -18,7 +17,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-lg">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-2">
           <Code className="h-8 w-8 text-primary" />
@@ -36,7 +35,6 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <ThemeSwitcher />
           <Button asChild className="hidden md:flex rounded-full">
              <Link href="#contact">Get Quote</Link>
           </Button>
@@ -50,7 +48,7 @@ export default function Header() {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col items-center space-y-6 py-6 border-t border-border/40 bg-background/95">
+          <nav className="flex flex-col items-center space-y-6 py-6 border-t border-white/10 bg-background/95">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
