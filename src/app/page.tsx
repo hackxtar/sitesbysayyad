@@ -1,24 +1,15 @@
 
-import Header from '@/components/layout/Header';
-import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import Projects from '@/components/sections/Projects';
-import Skills from '@/components/sections/Skills';
-import Contact from '@/components/sections/Contact';
-import Footer from '@/components/layout/Footer';
-
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Header />
-      <main className="flex-1">
-        <Hero />
-        <Services />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          Ready to build
+        </h1>
+        <p className="mt-6 text-lg leading-8 text-muted-foreground">
+          I'm ready for your instructions.
+        </p>
+      </div>
+    </main>
   );
 }
