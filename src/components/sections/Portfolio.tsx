@@ -20,7 +20,7 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <Card key={project.title} className="overflow-hidden flex flex-col bg-card border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fade-in-up" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
               <div className="aspect-video relative w-full">
-                 <Image src={project.imageUrl} alt={project.title} fill className="object-cover" data-ai-hint={project.hint} />
+                 <Image src={project.imageUrl} alt={project.title} fill className="object-cover" />
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{project.title}</CardTitle>

@@ -4,72 +4,63 @@
       {
         "title": "Eduvision",
         "description": "An educational platform for students, built with a modern web stack.",
-        "imageUrl": "https://picsum.photos/seed/eduvision/600/400",
-        "hint": "education website",
+        "imageUrl": "/portfolio/portfolio-eduvision.png",
         "link": "https://eduvision.sitesbysayyad.com/",
         "tags": ["Next.js", "Node.js", "Tailwind CSS", "Express.js"]
       },
       {
         "title": "Examplify",
         "description": "An online examination and assessment tool for educational institutions.",
-        "imageUrl": "https://picsum.photos/seed/examplify/600/400",
-        "hint": "online exam",
+        "imageUrl": "/portfolio/portfolio-examplify.png",
         "link": "https://examplify.sitesbysayyad.com/",
         "tags": ["Next.js", "Node.js", "SaaS", "SCSS"]
       },
       {
         "title": "Earth and Ether",
         "description": "An e-commerce store for a natural products brand.",
-        "imageUrl": "https://picsum.photos/seed/earth/600/400",
-        "hint": "ecommerce website",
+        "imageUrl": "/portfolio/portfolio-earth-and-ether.png",
         "link": "https://earthandether.in/",
         "tags": ["WordPress", "WooCommerce"]
       },
       {
         "title": "Akola24 News",
         "description": "A local news portal for the Akola region, integrated with various APIs.",
-        "imageUrl": "https://picsum.photos/seed/akola24/600/400",
-        "hint": "news website",
+        "imageUrl": "/portfolio/portfolio-akola24-news.png",
         "link": "https://akola24news.in/",
         "tags": ["WordPress", "API Integration"]
       },
       {
         "title": "Chotanagpur Times",
         "description": "Regional news and media publication powered by WordPress.",
-        "imageUrl": "https://picsum.photos/seed/chotanagpur/600/400",
-        "hint": "media portal",
+        "imageUrl": "/portfolio/portfolio-chotanagpur-times.png",
         "link": "http://chotanagpurtimes.com/",
         "tags": ["WordPress", "News"]
       },
       {
         "title": "Portaal Kennisoverislam",
         "description": "An Islamic knowledge portal in Dutch, built on the Moodle platform.",
-        "imageUrl": "https://picsum.photos/seed/kennis/600/400",
-        "hint": "knowledge portal",
+        "imageUrl": "/portfolio/portfolio-kennisoverislam.png",
         "link": "https://www.portaal.kennisoverislam.nl/",
         "tags": ["Moodle", "PHP", "Community"]
       },
       {
         "title": "HF Interior",
         "description": "A portfolio website for an interior design firm using WordPress.",
-        "imageUrl": "https://picsum.photos/seed/hfinterior/600/400",
-        "hint": "interior design",
+        "imageUrl": "/portfolio/portfolio-hf-interior.png",
         "link": "https://hfinterior.in/",
         "tags": ["WordPress", "Portfolio"]
       },
       {
         "title": "Bhejooo",
         "description": "Initial implementation of a delivery service platform using a PHP framework.",
-        "imageUrl": "https://picsum.photos/seed/bhejooo/600/400",
-        "hint": "delivery service",
+        "imageUrl": "/portfolio/portfolio-bhejooo.png",
         "link": "https://bhejooo.com/",
         "tags": ["PHP", "Logistics", "API"]
       },
       {
         "title": "MH24 News",
         "description": "A news and media website for Maharashtra, built on WordPress.",
-        "imageUrl": "https://picsum.photos/seed/mh24/600/400",
-        "hint": "regional news",
+        "imageUrl": "/portfolio/portfolio-mh24-news.png",
         "link": "http://mh24news.com/",
         "tags": ["WordPress", "Media"]
     }
