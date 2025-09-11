@@ -1,22 +1,21 @@
-
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { CodeXml, LayoutTemplate, Palette, ShoppingCart, Smartphone, PenTool } from 'lucide-react';
 
 const services = [
   {
     icon: <CodeXml className="h-8 w-8 text-primary" />,
-    title: 'Web Development',
+    title: 'Custom Websites',
     description: 'Building responsive and high-performance websites from the ground up, with a focus on modern web standards.',
   },
   {
     icon: <LayoutTemplate className="h-8 w-8 text-primary" />,
-    title: 'Application Development',
-    description: 'Bespoke web and mobile applications built with modern, scalable technologies to solve complex problems.',
+    title: 'Web Applications',
+    description: 'Bespoke web applications built with modern, scalable technologies to solve complex business problems.',
   },
   {
     icon: <PenTool className="h-8 w-8 text-primary" />,
-    title: 'UI/UX Design',
-    description: 'Creating intuitive and beautiful user interfaces that provide a seamless user experience across all devices.',
+    title: 'WordPress Development',
+    description: 'Custom themes, plugins, and full-site builds on the world\'s most popular content management system.',
   },
   {
     icon: <Smartphone className="h-8 w-8 text-primary" />,
@@ -26,21 +25,21 @@ const services = [
   {
     icon: <ShoppingCart className="h-8 w-8 text-primary" />,
     title: 'E-commerce Solutions',
-    description: 'Custom e-commerce platforms and Shopify apps to help you sell online and grow your business.',
+    description: 'Custom e-commerce platforms to help you sell online and grow your business.',
   },
   {
     icon: <Palette className="h-8 w-8 text-primary" />,
-    title: 'WordPress & CMS',
-    description: 'Custom themes, plugins, and full-site builds on popular CMS platforms like WordPress and Sanity.',
+    title: 'Shopify Development',
+    description: 'Custom Shopify themes and apps to create a unique and powerful online store for your brand.',
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-background">
+    <section id="services" className="py-20 md:py-28 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="text-4xl font-headline font-bold text-foreground sm:text-5xl">What We Offer</h2>
+          <h2 className="text-4xl font-bold text-foreground sm:text-5xl">What We Offer</h2>
           <p className="mt-4 text-xl text-muted-foreground">A comprehensive suite of development services.</p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
