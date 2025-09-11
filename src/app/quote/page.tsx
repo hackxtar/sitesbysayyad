@@ -120,12 +120,12 @@ export default function QuotePage() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="new-website">New Website</SelectItem>
-                            <SelectItem value="web-application">Web Application</SelectItem>
-                            <SelectItem value="mobile-app">Mobile App (iOS & Android)</SelectItem>
-                            <SelectItem value="ecommerce-store">E-commerce Store</SelectItem>
-                            <SelectItem value="wordpress">WordPress</SelectItem>
-                            <SelectItem value="shopify">Shopify</SelectItem>
+                            <SelectItem value="New Website">New Website</SelectItem>
+                            <SelectItem value="Web Application">Web Application</SelectItem>
+                            <SelectItem value="Mobile App">Mobile App (iOS & Android)</SelectItem>
+                            <SelectItem value="E-commerce Store">E-commerce Store</SelectItem>
+                            <SelectItem value="WordPress">WordPress</SelectItem>
+                            <SelectItem value="Shopify">Shopify</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -143,12 +143,12 @@ export default function QuotePage() {
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select a design style" />
-                            </Trigger>
+                            </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="simple-template">Simple & Clean (Template-based)</SelectItem>
-                            <SelectItem value="professional-custom">Professional (Custom Design)</SelectItem>
-                            <SelectItem value="world-class-animation">World-Class (Animations & Advanced UI)</SelectItem>
+                            <SelectItem value="Simple & Clean">Simple & Clean (Template-based)</SelectItem>
+                            <SelectItem value="Professional (Custom Design)">Professional (Custom Design)</SelectItem>
+                            <SelectItem value="World-Class (Animations & Advanced UI)">World-Class (Animations & Advanced UI)</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
