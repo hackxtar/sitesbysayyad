@@ -32,7 +32,7 @@ export default function Hero() {
               <Link href="/quote">Get a Quote</Link>
             </Button>
             <Button asChild variant="ghost" size="lg" className="rounded-full px-8 py-6 text-lg hover:bg-white/10 hover:text-white">
-              <Link href="#projects">
+              <Link href="#portfolio">
                 Our Work <ChevronRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
