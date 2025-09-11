@@ -1,0 +1,69 @@
+
+{
+    "projects": [
+      {
+        "title": "Eduvision",
+        "description": "An educational platform for students.",
+        "imageUrl": "https://picsum.photos/seed/eduvision/600/400",
+        "hint": "education website",
+        "link": "https://eduvision.sitesbysayyad.com/",
+        "tags": ["Educational", "Web App"]
+      },
+      {
+        "title": "Examplify",
+        "description": "An online examination and assessment tool.",
+        "imageUrl": "https://picsum.photos/seed/examplify/600/400",
+        "hint": "online exam",
+        "link": "https://examplify.sitesbysayyad.com/",
+        "tags": ["Exams", "SaaS"]
+      },
+      {
+        "title": "Akola24 News",
+        "description": "A local news portal for the Akola region.",
+        "imageUrl": "https://picsum.photos/seed/akola24/600/400",
+        "hint": "news website",
+        "link": "https://akola24news.in/",
+        "tags": ["News", "Media"]
+      },
+      {
+        "title": "Chotanagpur Times",
+        "description": "Regional news and media publication.",
+        "imageUrl": "https://picsum.photos/seed/chotanagpur/600/400",
+        "hint": "media portal",
+        "link": "http://chotanagpurtimes.com/",
+        "tags": ["News", "Media"]
+      },
+      {
+        "title": "Portaal Kennisoverislam",
+        "description": "An Islamic knowledge portal in Dutch.",
+        "imageUrl": "https://picsum.photos/seed/kennis/600/400",
+        "hint": "knowledge portal",
+        "link": "https://www.portaal.kennisoverislam.nl/",
+        "tags": ["Knowledge Base", "Community"]
+      },
+      {
+        "title": "HF Interior",
+        "description": "A portfolio website for an interior design firm.",
+        "imageUrl": "https://picsum.photos/seed/hfinterior/600/400",
+        "hint": "interior design",
+        "link": "https://hfinterior.in/",
+        "tags": ["Portfolio", "Interior Design"]
+      },
+      {
+        "title": "Bhejooo",
+        "description": "Initial implementation of a delivery service platform.",
+        "imageUrl": "https://picsum.photos/seed/bhejooo/600/400",
+        "hint": "delivery service",
+        "link": "https://bhejooo.com/",
+        "tags": ["Logistics", "Startup"]
+      },
+      {
+        "title": "MH24 News",
+        "description": "A news and media website for Maharashtra.",
+        "imageUrl": "https://picsum.photos/seed/mh24/600/400",
+        "hint": "regional news",
+        "link": "http://mh24news.com/",
+        "tags": ["News", "Media"]
+    }
+    ]
+}
