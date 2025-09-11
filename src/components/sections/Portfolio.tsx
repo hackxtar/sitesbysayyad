@@ -16,7 +16,7 @@ export default function Portfolio() {
           <h2 className="text-4xl font-bold text-foreground sm:text-5xl">Our Portfolio</h2>
           <p className="mt-4 text-xl text-muted-foreground">A selection of our recent projects.</p>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <Card key={project.title} className="overflow-hidden flex flex-col bg-card border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fade-in-up" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
               <div className="aspect-video relative w-full">
