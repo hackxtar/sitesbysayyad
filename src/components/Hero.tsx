@@ -8,11 +8,10 @@ export default function Hero() {
   return (
     <section className="relative bg-background text-white min-h-[calc(100vh-80px)] flex items-center">
       <Image
-        src="https://picsum.photos/seed/hero/1920/1080"
-        alt="Hero background illustration"
+        src="/hero-illustration.png"
+        alt="Digital illustration of a person working on a laptop with code elements."
         fill
         className="object-cover"
-        data-ai-hint="programming laptop illustration"
         priority
       />
       <div className="absolute inset-0 bg-black/60" />
