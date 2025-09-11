@@ -35,9 +35,6 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <Button asChild className="hidden md:flex rounded-full">
-             <Link href="/quote">Get Quote</Link>
-          </Button>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
               <span className="sr-only">Toggle menu</span>
@@ -59,9 +56,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-             <Button asChild className="rounded-full">
-                <Link href="/quote" onClick={() => setIsOpen(false)}>Get Quote</Link>
-             </Button>
           </nav>
         </div>
       )}

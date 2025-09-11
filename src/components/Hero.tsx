@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-x-6 gap-y-4">
             <Button asChild size="lg" className="rounded-full px-8 py-6 text-lg w-full sm:w-auto">
-              <Link href="/quote">Get a Quote</Link>
+              <Link href="/#contact">Get in Touch</Link>
             </Button>
             <Button asChild variant="ghost" size="lg" className="rounded-full px-8 py-6 text-lg hover:bg-white/10 hover:text-white w-full sm:w-auto">
               <Link href="#portfolio">
