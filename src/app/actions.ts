@@ -54,6 +54,11 @@ export async function generateQuote(input: CalculateQuoteInput): Promise<Calcula
     try {
         const quote = await calculateQuote(input);
 
+        // Do not send email if the quote was not generated due to a disposable email address
+        if (quote.notes && quote.notes.includes('disposable')) {
+            return quote;
+        }
+
         // Send the quote to the user's email
         await sendMail({
             to: input.email,
