@@ -141,7 +141,7 @@ export default function QuotePage() {
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select a design style" />
-                            </Trigger>
+                            </SelectTrigger>
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="simple-template">Simple & Clean (Template-based)</SelectItem>

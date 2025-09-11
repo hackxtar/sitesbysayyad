@@ -3,6 +3,7 @@
 
 import { parseResumeAndDisplay, ParseResumeAndDisplayInput } from "@/ai/flows/parse-resume-and-display";
 import { calculateQuote, CalculateQuoteInput, CalculateQuoteOutput } from '@/ai/flows/calculate-quote-flow';
+import { sendMail } from "@/services/email-service";
 
 
 export async function handleResumeUpload(resumeText: string) {
@@ -17,22 +18,70 @@ export async function handleResumeUpload(resumeText: string) {
 }
 
 export async function submitContactForm(prevState: any, formData: FormData) {
-  // This is a mock function. In a real app, you would send this data to a server.
-  console.log('Form submitted:');
-  console.log('Name:', formData.get('name'));
-  console.log('Email:', formData.get('email'));
-  console.log('Message:', formData.get('message'));
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
 
-  // Simulate a network delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+        // Send notification to site owner
+        await sendMail({
+            to: 'info@sitesbysayyad.com', // Your email address
+            subject: `New Contact Form Submission from ${name}`,
+            html: `
+                <p>You have a new message from your website's contact form:</p>
+                <ul>
+                    <li><strong>Name:</strong> ${name}</li>
+                    <li><strong>Email:</strong> ${email}</li>
+                </ul>
+                <p><strong>Message:</strong></p>
+                <p>${message}</p>
+            `,
+        });
 
-  // Simulate a successful submission
-  return { message: "Thank you for your message! We'll get back to you soon.", errors: null };
+        // Simulate a network delay for the rest of the process
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        return { message: "Thank you for your message! We'll get back to you soon.", errors: null };
 
-  // Simulate an error
-  // return { message: "An error occurred. Please try again.", errors: { email: "Invalid email" } };
+    } catch (error) {
+        console.error("Error in submitContactForm:", error);
+        return { message: "An unexpected error occurred while sending your message. Please try again later.", errors: null };
+    }
 }
+
 
 export async function generateQuote(input: CalculateQuoteInput): Promise<CalculateQuoteOutput> {
-  return await calculateQuote(input);
+    try {
+        const quote = await calculateQuote(input);
+
+        // Send the quote to the user's email
+        await sendMail({
+            to: input.email,
+            subject: 'Your Project Quote from SitesBySayyad',
+            html: `
+                <h1>Here is your estimated project quote</h1>
+                <p>Thank you for your interest in SitesBySayyad. Based on the details you provided, here is a tentative estimate for your project.</p>
+                
+                <h2>Estimated Budget: ${quote.estimatedCost}</h2>
+                
+                <h3>Proposed Project Flow:</h3>
+                <p>${quote.breakdown.replace(/\n/g, '<br>')}</p>
+                
+                <hr>
+                
+                <p><strong>Please Note:</strong> ${quote.notes.replace(/\n/g, '<br>')}</p>
+                
+                <p>We'd love to discuss this further with you. Please feel free to reply to this email with any questions.</p>
+                
+                <p>Best regards,<br>The SitesBySayyad Team</p>
+            `,
+        });
+
+        return quote;
+    } catch (error) {
+        console.error("Error generating quote and sending email:", error);
+        // Re-throw the error to be caught by the client-side transition
+        throw new Error('Failed to generate or email the quote.');
+    }
 }
+    
