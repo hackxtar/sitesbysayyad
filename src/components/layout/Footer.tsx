@@ -28,26 +28,9 @@ export default function Footer() {
              <div>
               <h3 className="font-semibold text-foreground tracking-wider uppercase">Legal</h3>
               <ul className="mt-4 space-y-2">
-                <li><a href="#" className="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-primary">Terms of Service</a></li>
+                <li><Link href="/privacy-policy" className="text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
+                <li><Link href="/terms-of-service" className="text-muted-foreground hover:text-primary">Terms of Service</Link></li>
               </ul>
-            </div>
-            <div className="col-span-2 md:col-span-1">
-                 <h3 className="font-semibold text-foreground tracking-wider uppercase">Connect</h3>
-                <div className="mt-4 flex justify-center md:justify-start space-x-6">
-                    <a href="#" className="text-muted-foreground hover:text-primary">
-                        <span className="sr-only">Twitter</span>
-                        <Twitter className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
-                        <span className="sr-only">GitHub</span>
-                        <Github className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-muted-foreground hover:text-primary">
-                        <span className="sr-only">LinkedIn</span>
-                        <Linkedin className="h-6 w-6" />
-                    </a>
-                </div>
             </div>
           </div>
         </div>
