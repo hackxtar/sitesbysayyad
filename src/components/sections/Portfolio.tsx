@@ -6,7 +6,15 @@ import { ArrowUpRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import projectsData from '@/lib/placeholder-images.json';
 
-const projects = projectsData.projects;
+const projects = projectsData.projects as Array<{
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  tags: string[];
+  'data-ai-hint'?: string;
+}>;
+
 
 export default function Portfolio() {
   return (
@@ -20,7 +28,13 @@ export default function Portfolio() {
           {projects.map((project, index) => (
             <Card key={project.title} className="overflow-hidden flex flex-col bg-card border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 fade-in-up" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
               <div className="aspect-video relative w-full">
-                 <Image src={project.imageUrl} alt={project.title} fill className="object-cover" />
+                 <Image 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover"
+                    {...(project['data-ai-hint'] && {'data-ai-hint': project['data-ai-hint']})}
+                 />
               </div>
               <CardHeader>
                 <CardTitle className="text-xl">{project.title}</CardTitle>

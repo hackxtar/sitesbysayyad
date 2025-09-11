@@ -53,14 +53,16 @@
       {
         "title": "Bhejooo",
         "description": "Initial implementation of a delivery service platform using a PHP framework.",
-        "imageUrl": "/portfolio/portfolio-bhejooo.png",
+        "imageUrl": "https://picsum.photos/seed/tech1/600/400",
+        "data-ai-hint": "logistics api",
         "link": "https://bhejooo.com/",
         "tags": ["PHP", "Logistics", "API"]
       },
       {
         "title": "MH24 News",
         "description": "A news and media website for Maharashtra, built on WordPress.",
-        "imageUrl": "/portfolio/portfolio-mh24-news.png",
+        "imageUrl": "https://picsum.photos/seed/tech2/600/400",
+        "data-ai-hint": "media technology",
         "link": "http://mh24news.com/",
         "tags": ["WordPress", "Media"]
     }
