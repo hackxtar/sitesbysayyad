@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="relative bg-background text-white min-h-[calc(100vh-80px)] flex items-center">
       <Image
-        src="/hero-illustration.png"
+        src="https://picsum.photos/seed/hero/1920/1080"
         alt="Hero background illustration"
         fill
         className="object-cover"
