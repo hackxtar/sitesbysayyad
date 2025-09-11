@@ -124,6 +124,8 @@ export default function QuotePage() {
                             <SelectItem value="web-application">Web Application</SelectItem>
                             <SelectItem value="mobile-app">Mobile App (iOS & Android)</SelectItem>
                             <SelectItem value="ecommerce-store">E-commerce Store</SelectItem>
+                            <SelectItem value="wordpress">WordPress</SelectItem>
+                            <SelectItem value="shopify">Shopify</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -141,7 +143,7 @@ export default function QuotePage() {
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select a design style" />
-                            </SelectTrigger>
+                            </Trigger>
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="simple-template">Simple & Clean (Template-based)</SelectItem>
@@ -207,7 +209,7 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Proposed Project Flow</h3>
-                  <p className="whitespace-pre-wrap text-muted-foreground">{quoteResponse.breakdown}</p>
+                  <div className="prose prose-sm text-muted-foreground max-w-none" dangerouslySetInnerHTML={{ __html: quoteResponse.breakdown }} />
                 </div>
                 <Alert>
                   <AlertTitle>Please Note</AlertTitle>

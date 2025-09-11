@@ -70,11 +70,11 @@ export async function generateQuote(input: CalculateQuoteInput): Promise<Calcula
                 <h2>Estimated Budget: ${quote.estimatedCost}</h2>
                 
                 <h3>Proposed Project Flow:</h3>
-                <p>${quote.breakdown.replace(/\n/g, '<br>')}</p>
+                <div>${quote.breakdown}</div>
                 
                 <hr>
                 
-                <p><strong>Please Note:</strong> ${quote.notes.replace(/\n/g, '<br>')}</p>
+                <p><strong>Please Note:</strong> ${quote.notes}</p>
                 
                 <p>We'd love to discuss this further with you. Please feel free to reply to this email with any questions.</p>
                 
