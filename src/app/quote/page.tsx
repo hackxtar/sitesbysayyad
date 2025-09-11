@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useState, useTransition, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -33,10 +33,54 @@ interface QuoteResponse {
   notes: string;
 }
 
+const getCookie = (name: string): string | null => {
+  if (typeof document === 'undefined') return null;
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+  return null;
+};
+
+const setCookie = (name: string, value: string, days: number) => {
+  if (typeof document === 'undefined') return;
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  const expires = `expires=${date.toUTCString()}`;
+  document.cookie = `${name}=${value};${expires};path=/`;
+};
+
+const MASK_CHAR = '#';
+
+function maskCost(costString: string): string {
+    const numberMatch = costString.match(/(\d{1,3}(,\d{3})*(\.\d+)?)/);
+    if (!numberMatch) return costString;
+
+    const numberStr = numberMatch[0].replace(/,/g, '');
+    const numDigits = numberStr.length;
+
+    if (numDigits <= 3) return costString;
+
+    const maskedPart = MASK_CHAR.repeat(numDigits - 3);
+    const visiblePart = numberStr.substring(numDigits - 3);
+    const maskedNumber = maskedPart + visiblePart;
+
+    // Re-insert commas for readability
+    const formattedMaskedNumber = maskedNumber.split('').reverse().join('').replace(/(\d{3}(?!$))/g, '$1,').split('').reverse().join('');
+    
+    return costString.replace(numberMatch[0], formattedMaskedNumber);
+}
+
+
 export default function QuotePage() {
   const [isPending, startTransition] = useTransition();
   const [quoteResponse, setQuoteResponse] = useState<QuoteResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [quoteCount, setQuoteCount] = useState(0);
+
+  useEffect(() => {
+    const count = parseInt(getCookie('quoteCount') || '0', 10);
+    setQuoteCount(count);
+  }, []);
 
   const form = useForm<QuoteFormValues>({
     resolver: zodResolver(quoteSchema),
@@ -46,14 +90,23 @@ export default function QuotePage() {
       features: '',
     },
   });
+  
+  const isLimitReached = quoteCount >= 2;
 
   const onSubmit = (values: QuoteFormValues) => {
+    if (isLimitReached) {
+      setError("You have reached the daily quote limit. Please try again tomorrow.");
+      return;
+    }
     setError(null);
     setQuoteResponse(null);
     startTransition(async () => {
       try {
         const response = await generateQuote(values);
         setQuoteResponse(response);
+        const newCount = quoteCount + 1;
+        setQuoteCount(newCount);
+        setCookie('quoteCount', newCount.toString(), 1); // Cookie expires in 1 day
       } catch (err) {
         setError('An unexpected error occurred. Please try again.');
       }
@@ -77,109 +130,116 @@ export default function QuotePage() {
               <CardDescription>The more detail you provide, the more accurate the estimate will be.</CardDescription>
             </CardHeader>
             <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                   <div className="grid md:grid-cols-2 gap-8">
-                     <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email</FormLabel>
+              {isLimitReached ? (
+                 <Alert variant="destructive">
+                    <AlertTitle>Daily Limit Reached</AlertTitle>
+                    <AlertDescription>You have already requested 2 quotes today. Please try again tomorrow.</AlertDescription>
+                 </Alert>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                     <div className="grid md:grid-cols-2 gap-8">
+                       <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="your.email@example.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="mobile"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Mobile Number</FormLabel>
+                              <FormControl>
+                                <Input placeholder="9876543210" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                     </div>
+                    <FormField
+                      control={form.control}
+                      name="projectType"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Project Type</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <Input type="email" placeholder="your.email@example.com" {...field} />
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select a project type" />
+                              </SelectTrigger>
                             </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="mobile"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Mobile Number</FormLabel>
+                            <SelectContent>
+                              <SelectItem value="New Website">New Website</SelectItem>
+                              <SelectItem value="Web Application">Web Application</SelectItem>
+                              <SelectItem value="Mobile App">Mobile App (iOS & Android)</SelectItem>
+                              <SelectItem value="E-commerce Store">E-commerce Store</SelectItem>
+                              <SelectItem value="WordPress">WordPress</SelectItem>
+                              <SelectItem value="Shopify">Shopify</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="design"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Design Style</FormLabel>
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <Input placeholder="9876543210" {...field} />
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select a design style" />
+                              </SelectTrigger>
                             </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                   </div>
-                  <FormField
-                    control={form.control}
-                    name="projectType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Project Type</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <SelectContent>
+                              <SelectItem value="Simple & Clean">Simple & Clean (Template-based)</SelectItem>
+                              <SelectItem value="Professional (Custom Design)">Professional (Custom Design)</SelectItem>
+                              <SelectItem value="World-Class (Animations & Advanced UI)">World-Class (Animations & Advanced UI)</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="features"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Key Features & Requirements</FormLabel>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a project type" />
-                            </SelectTrigger>
+                            <Textarea
+                              placeholder="Describe the main features, e.g., user accounts, blog, payment integration, admin dashboard..."
+                              rows={6}
+                              {...field}
+                            />
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="New Website">New Website</SelectItem>
-                            <SelectItem value="Web Application">Web Application</SelectItem>
-                            <SelectItem value="Mobile App">Mobile App (iOS & Android)</SelectItem>
-                            <SelectItem value="E-commerce Store">E-commerce Store</SelectItem>
-                            <SelectItem value="WordPress">WordPress</SelectItem>
-                            <SelectItem value="Shopify">Shopify</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="design"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Design Style</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a design style" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Simple & Clean">Simple & Clean (Template-based)</SelectItem>
-                            <SelectItem value="Professional (Custom Design)">Professional (Custom Design)</SelectItem>
-                            <SelectItem value="World-Class (Animations & Advanced UI)">World-Class (Animations & Advanced UI)</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="features"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Key Features & Requirements</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Describe the main features, e.g., user accounts, blog, payment integration, admin dashboard..."
-                            rows={6}
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button type="submit" size="lg" className="w-full" disabled={isPending}>
-                    {isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
-                    Calculate My Quote
-                  </Button>
-                </form>
-              </Form>
+                    <Button type="submit" size="lg" className="w-full" disabled={isPending || isLimitReached}>
+                      {isPending && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+                      Calculate My Quote
+                    </Button>
+                  </form>
+                </Form>
+              )}
             </CardContent>
           </Card>
 
@@ -190,7 +250,7 @@ export default function QuotePage() {
             </div>
           )}
 
-          {error && (
+          {error && !isPending && (
             <Alert variant="destructive" className="mt-8">
               <AlertTitle>Error</AlertTitle>
               <AlertDescription>{error}</AlertDescription>
@@ -198,14 +258,15 @@ export default function QuotePage() {
           )}
 
           {quoteResponse && !isPending && (
-            <Card className="mt-8 bg-card border shadow-lg">
+             <Card className="mt-8 bg-card border shadow-lg">
               <CardHeader>
                 <CardTitle className="text-2xl text-primary">Your Estimated Quote</CardTitle>
+                <CardDescription>An email with the exact budget has been sent to you.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-lg">Estimated Budget</h3>
-                  <p className="text-3xl font-bold text-foreground">{quoteResponse.estimatedCost}</p>
+                  <p className="text-3xl font-bold text-foreground">{maskCost(quoteResponse.estimatedCost)}</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Proposed Project Flow</h3>
