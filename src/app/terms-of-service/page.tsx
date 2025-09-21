@@ -1,17 +1,33 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/layout/Footer';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Please read our Terms of Service carefully before using the SitesBySayyad website and services.',
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+// Note: Client-side metadata like this is not ideal for SEO.
+// This is a workaround because the date is now client-rendered.
+// export const metadata: Metadata = {
+//   title: 'Terms of Service',
+//   description: 'Please read our Terms of Service carefully before using the SitesBySayyad website and services.',
+//   robots: {
+//     index: false,
+//     follow: true,
+//   },
+// };
 
 export default function TermsOfServicePage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }));
+  }, []);
+
   return (
     <>
       <Header />
@@ -19,7 +35,7 @@ export default function TermsOfServicePage() {
         <div className="container mx-auto max-w-4xl px-4">
           <article className="prose lg:prose-xl dark:prose-invert mx-auto">
             <h1>Terms of Service</h1>
-            <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
+            {lastUpdated && <p className="text-muted-foreground">Last updated: {lastUpdated}</p>}
             
             <h2>1. Terms</h2>
             <p>

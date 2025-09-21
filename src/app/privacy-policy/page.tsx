@@ -1,17 +1,33 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/layout/Footer';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Read the privacy policy for SitesBySayyad. We are committed to protecting your personal information and your right to privacy.',
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+// Note: Client-side metadata like this is not ideal for SEO.
+// This is a workaround because the date is now client-rendered.
+// export const metadata: Metadata = {
+//   title: 'Privacy Policy',
+//   description: 'Read the privacy policy for SitesBySayyad. We are committed to protecting your personal information and your right to privacy.',
+//   robots: {
+//     index: false,
+//     follow: true,
+//   },
+// };
 
 export default function PrivacyPolicyPage() {
+  const [lastUpdated, setLastUpdated] = useState('');
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }));
+  }, []);
+
   return (
     <>
       <Header />
@@ -19,7 +35,7 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto max-w-4xl px-4">
           <article className="prose lg:prose-xl dark:prose-invert mx-auto">
             <h1>Privacy Policy</h1>
-            <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
+            {lastUpdated && <p className="text-muted-foreground">Last updated: {lastUpdated}</p>}
             
             <p>
               Your privacy is important to us. It is SitesBySayyad's policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.
