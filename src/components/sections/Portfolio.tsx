@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -30,8 +31,9 @@ export default function Portfolio() {
               <div className="aspect-video relative w-full">
                  <Image 
                     src={project.imageUrl} 
-                    alt={project.title} 
-                    fill 
+                    alt={`Portfolio project screenshot for ${project.title}`}
+                    width={600}
+                    height={400} 
                     className="object-cover"
                     {...(project['data-ai-hint'] && {'data-ai-hint': project['data-ai-hint']})}
                  />

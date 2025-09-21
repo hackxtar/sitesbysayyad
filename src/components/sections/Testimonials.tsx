@@ -1,3 +1,4 @@
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -66,7 +67,7 @@ export default function Testimonials() {
                     </CardContent>
                     <div className="p-6 pt-0 flex items-center gap-4">
                       <Avatar>
-                        <AvatarImage src={`https://i.pravatar.cc/40?u=${testimonial.avatarSeed}`} alt={testimonial.name} />
+                        <AvatarImage src={`https://i.pravatar.cc/40?u=${testimonial.avatarSeed}`} alt={`Avatar of ${testimonial.name}`} />
                         <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div>

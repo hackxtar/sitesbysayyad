@@ -1,5 +1,7 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
+import { Toaster } from '@/components/ui/toaster';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sitesbysayyad.com';
 
@@ -46,6 +48,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
           {children}
+          <Toaster />
       </body>
     </html>
   );
