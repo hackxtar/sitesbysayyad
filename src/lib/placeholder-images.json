@@ -4,49 +4,49 @@
       {
         "title": "Eduvision",
         "description": "An educational platform for students, built with a modern web stack.",
-        "imageUrl": "/portfolio/portfolio-eduvision.png",
+        "imageUrl": "/portfolio-eduvision.png",
         "link": "https://eduvision.sitesbysayyad.com/",
         "tags": ["Next.js", "Node.js", "Tailwind CSS", "Express.js"]
       },
       {
         "title": "Examplify",
         "description": "An online examination and assessment tool for educational institutions.",
-        "imageUrl": "/portfolio/portfolio-examplify.png",
+        "imageUrl": "/portfolio-examplify.png",
         "link": "https://examplify.sitesbysayyad.com/",
         "tags": ["Next.js", "Node.js", "SaaS", "SCSS"]
       },
       {
         "title": "Earth and Ether",
         "description": "An e-commerce store for a natural products brand.",
-        "imageUrl": "/portfolio/portfolio-earth-and-ether.png",
+        "imageUrl": "/portfolio-earth-and-ether.png",
         "link": "https://earthandether.in/",
         "tags": ["WordPress", "WooCommerce"]
       },
       {
         "title": "Akola24 News",
         "description": "A local news portal for the Akola region, integrated with various APIs.",
-        "imageUrl": "/portfolio/portfolio-akola24-news.png",
+        "imageUrl": "/portfolio-akola24-news.png",
         "link": "https://akola24news.in/",
         "tags": ["WordPress", "API Integration"]
       },
       {
         "title": "Chotanagpur Times",
         "description": "Regional news and media publication powered by WordPress.",
-        "imageUrl": "/portfolio/portfolio-chotanagpur-times.png",
+        "imageUrl": "/portfolio-chotanagpur-times.png",
         "link": "http://chotanagpurtimes.com/",
         "tags": ["WordPress", "News"]
       },
       {
         "title": "Portaal Kennisoverislam",
         "description": "An Islamic knowledge portal in Dutch, built on the Moodle platform.",
-        "imageUrl": "/portfolio/portfolio-kennisoverislam.png",
+        "imageUrl": "/portfolio-kennisoverislam.png",
         "link": "https://www.portaal.kennisoverislam.nl/",
         "tags": ["Moodle", "PHP", "Community"]
       },
       {
         "title": "HF Interior",
         "description": "A portfolio website for an interior design firm using WordPress.",
-        "imageUrl": "/portfolio/portfolio-hf-interior.png",
+        "imageUrl": "/portfolio-hf-interior.png",
         "link": "https://hfinterior.in/",
         "tags": ["WordPress", "Portfolio"]
       },
