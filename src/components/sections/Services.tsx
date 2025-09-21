@@ -45,9 +45,11 @@ export default function Services() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={index} className="text-left bg-card border transition-all duration-300 hover:border-primary/80 hover:shadow-lg hover:-translate-y-1 fade-in-up" style={{ animationDelay: `${index * 0.1 + 0.2}s` }}>
-              <CardHeader className="flex-row items-center gap-4">
-                {service.icon}
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  {service.icon}
+                  <CardTitle as="h3" className="text-xl">{service.title}</CardTitle>
+                </div>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-base">{service.description}</p>

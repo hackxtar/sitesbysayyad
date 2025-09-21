@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     default: 'SitesBySayyad | Custom Web & Mobile App Development',
     template: '%s | SitesBySayyad',
   },
-  description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications with Next.js, Shopify, and WordPress.',
+  description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications.',
   keywords: ['web development', 'mobile app development', 'custom websites', 'ecommerce solutions', 'Shopify developer', 'WordPress developer', 'Next.js developer', 'React developer'],
   openGraph: {
     title: 'SitesBySayyad | Custom Web & Mobile App Development',
-    description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications with Next.js, Shopify, and WordPress.',
+    description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications.',
     url: siteUrl,
     siteName: 'SitesBySayyad',
     locale: 'en_US',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'SitesBySayyad | Custom Web & Mobile App Development',
-    description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications with Next.js, Shopify, and WordPress.',
+    description: 'Top-rated web and mobile app development agency. We build custom websites, e-commerce solutions, and high-performance applications.',
   },
   robots: {
     index: true,

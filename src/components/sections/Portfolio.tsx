@@ -39,7 +39,7 @@ export default function Portfolio() {
                  />
               </div>
               <CardHeader>
-                <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold leading-none tracking-tight">{project.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow space-y-4">
                  <p className="text-muted-foreground text-sm">{project.description}</p>

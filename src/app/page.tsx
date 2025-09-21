@@ -1,5 +1,4 @@
 import { type Metadata } from 'next';
-import Head from 'next/head';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Footer from '@/components/layout/Footer';
@@ -7,11 +6,10 @@ import Contact from '@/components/sections/Contact';
 import Portfolio from '@/components/sections/Portfolio';
 import Services from '@/components/sections/Services';
 import Testimonials from '@/components/sections/Testimonials';
-import { JsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Custom Web & Mobile App Development | SitesBySayyad',
-  description: 'Your trusted partner for creating high-performance custom websites, mobile apps, and e-commerce solutions. We specialize in Next.js, Shopify, and WordPress development to help your business grow.',
+  description: 'Your trusted partner for creating high-performance custom websites, mobile apps, and e-commerce solutions. Specializing in Next.js, Shopify, and WordPress.',
 };
 
 export default function Home() {
@@ -63,7 +61,10 @@ export default function Home() {
 
   return (
     <>
-      <JsonLd data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <Header />
       <main>
         <Hero />
