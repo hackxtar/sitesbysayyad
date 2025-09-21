@@ -15,6 +15,17 @@ export default function Footer() {
             <p className="text-muted-foreground">
               Crafting Digital Excellence, One Line of Code at a Time. We build innovative and beautiful web experiences.
             </p>
+             <div className="flex justify-center md:justify-start space-x-4 mt-4">
+              <a href="https://github.com/sitesbysayyad" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <Github className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </a>
+              <a href="https://www.linkedin.com/in/sayyad-saqlain-3b2763171/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </a>
+              <a href="https://twitter.com/Sayyad_Saqlain" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <Twitter className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+              </a>
+            </div>
           </div>
           <div className="md:col-span-2 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>

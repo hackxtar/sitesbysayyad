@@ -1,7 +1,6 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { ContactForm } from './ContactForm';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -13,7 +12,7 @@ export default function Contact() {
               Let's Build Something Amazing
             </h2>
             <p className="mt-4 text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 fade-in-up" style={{ animationDelay: '0.1s' }}>
-              Have a project in mind or just want to say hello? We'd love to hear from you.
+              Have a project in mind or just want to say hello? Fill out the form or use one of the contact methods below.
             </p>
             <div className="mt-8 space-y-6 max-w-sm mx-auto lg:mx-0 fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <a href="tel:+919172008681" className="flex items-center p-4 rounded-lg hover:bg-card/50 transition-colors group">
@@ -34,6 +33,15 @@ export default function Contact() {
                         <p className="text-muted-foreground group-hover:text-primary transition-colors">info@sitesbysayyad.com</p>
                     </div>
                 </a>
+                 <div className="flex items-center p-4 rounded-lg">
+                    <div className="bg-primary/10 p-3 rounded-full">
+                        <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="ml-4 text-left">
+                        <h3 className="text-lg font-semibold text-foreground">Our Office</h3>
+                        <p className="text-muted-foreground">Jyotibaphule Ward, Madheliroad, Warora, Maharashtra 442907</p>
+                    </div>
+                </div>
             </div>
           </div>
           <Card className="bg-card shadow-lg fade-in-up" style={{ animationDelay: '0.3s' }}>

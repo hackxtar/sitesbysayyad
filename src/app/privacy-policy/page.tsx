@@ -1,5 +1,15 @@
 import Header from '@/components/Header';
 import Footer from '@/components/layout/Footer';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Read the privacy policy for SitesBySayyad. We are committed to protecting your personal information and your right to privacy.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
@@ -7,7 +17,7 @@ export default function PrivacyPolicyPage() {
       <Header />
       <main className="py-20 md:py-28 bg-background">
         <div className="container mx-auto max-w-4xl px-4">
-          <div className="prose lg:prose-xl dark:prose-invert mx-auto">
+          <article className="prose lg:prose-xl dark:prose-invert mx-auto">
             <h1>Privacy Policy</h1>
             <p className="text-muted-foreground">Last updated: {new Date().toLocaleDateString()}</p>
             
@@ -32,7 +42,8 @@ export default function PrivacyPolicyPage() {
             <ul>
               <li>Name</li>
               <li>Email</li>
-              <li>Phone/mobile number</li>
+              <li>Company Name</li>
+              <li>Project Details</li>
             </ul>
             
             <h2>2. How We Use Your Information</h2>
@@ -41,11 +52,11 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul>
               <li>Provide, operate, and maintain our website</li>
-              <li>Improve, personalize, and expand our website</li>
+              <li>Generate project quotes and communicate with you</li>
+              <li>Improve, personalize, and expand our services</li>
               <li>Understand and analyze how you use our website</li>
               <li>Develop new products, services, features, and functionality</li>
-              <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</li>
-              <li>Send you emails</li>
+              <li>Send you emails for customer service, updates, and marketing purposes</li>
               <li>Find and prevent fraud</li>
             </ul>
 
@@ -68,7 +79,7 @@ export default function PrivacyPolicyPage() {
             <p>
               If you have any questions about this Privacy Policy, please contact us at info@sitesbysayyad.com.
             </p>
-          </div>
+          </article>
         </div>
       </main>
       <Footer />
