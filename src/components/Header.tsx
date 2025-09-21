@@ -12,7 +12,6 @@ const navLinks = [
   { href: '/#portfolio', label: 'Portfolio' },
   { href: '/#testimonials', label: 'Testimonials' },
   { href: '/#contact', label: 'Contact' },
-  { href: '/quote', label: 'Get Quote' },
 ];
 
 export default function Header() {
@@ -26,7 +25,7 @@ export default function Header() {
           <span className="font-bold text-2xl text-foreground">SitesBySayyad</span>
         </Link>
         <div className="flex items-center space-x-4">
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -36,6 +35,9 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+             <Button asChild>
+              <Link href="/quote">Get Quote</Link>
+            </Button>
           </nav>
           <div className="md:hidden">
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
@@ -58,6 +60,9 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Button asChild size="lg" onClick={() => setIsOpen(false)}>
+                <Link href="/quote">Get Quote</Link>
+            </Button>
           </nav>
         </div>
       )}
