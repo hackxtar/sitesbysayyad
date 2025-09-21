@@ -1,7 +1,6 @@
 
 'use client';
 
-import type { Metadata } from 'next';
 import { useState, useTransition } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,12 +28,6 @@ import { useToast } from '@/hooks/use-toast';
 import { generateQuote } from '@/app/actions';
 import type { QuoteOutput, QuoteInput } from '@/ai/flows/calculate-quote-flow';
 
-// This is client-side metadata, which is not ideal for SEO but works.
-// For server components, you can export a `metadata` object directly.
-export const metadata: Metadata = {
-    title: 'Free Project Quote Calculator',
-    description: 'Get an instant, AI-powered cost and timeline estimate for your web or mobile project. Fill out our detailed form to receive a personalized quote for your business needs.',
-};
 
 const services = [
     { id: 'custom_website', label: 'Custom Website Development' },
